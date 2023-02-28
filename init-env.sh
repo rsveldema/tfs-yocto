@@ -18,8 +18,8 @@ fi
 if [ -z "$OEROOT" ]; then
     OEROOT=$(dirname "$THIS_SCRIPT")
     OEROOT=$(readlink -f "$OEROOT")
+    export OEROOT=$OEROOT/poky
 fi
-export OEROOT=$OEROOT/poky
 echo "OEROOT= $OEROOT"
 
 unset THIS_SCRIPT
@@ -34,3 +34,6 @@ ls "$OEROOT"/scripts/oe-buildenv-internal
     unset OEROOT
     return 1
 }
+
+
+bitbake-layers add-layer ./meta-tfs
