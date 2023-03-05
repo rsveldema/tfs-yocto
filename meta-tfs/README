@@ -1,33 +1,27 @@
 This README file contains information on the contents of the meta-tfs layer.
 
-Please see the corresponding sections below for details.
+Debugging
+=================================================
 
-Dependencies
-============
 
-  URI: <first dependency>
-  branch: <branch name>
+. ./init-env.sh
+bitbake core-image-minimal
+bitbake core-image-minimal-dev
 
-  URI: <second dependency>
-  branch: <branch name>
+bitbake qemu-helper-native
 
-  .
-  .
-  .
+runqemu
 
-Patches
-=======
+# To run with gdb:
 
-Please submit any patches against the meta-tfs layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
+runqemu qemuparams="-s -S"
 
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
+in other terminal:
+cat > .gitinit
 
-Table of Contents
-=================
+add-symbol-file ~/src//git/yocto/poky/build/tmp/work/qemuarm64-poky-linux/linux-yocto/5.15.14+gitAUTOINC+72e4eafb6b_f77b2ba7d5-r0/linux-qemuarm64-standard-build/vmlinux
 
-  I. Adding the meta-tfs layer to your build
- II. Misc
+
 
 
 I. Adding the meta-tfs layer to your build

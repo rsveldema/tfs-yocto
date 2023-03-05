@@ -33,12 +33,22 @@ RPROVIDES:${PN} += "kernel-module-tfs-kmod"
 FILES:${PN} += "${systemd_unitdir}/system/tfs.service"
 FILES:${PN} += " /etc/tfs-setup.sh"
 FILES:${PN} += " /etc/modules-load.d"
+FILES:${PN} += " /loopfs/dummy.txt"
+FILES:${PN} += " /data"
+FILES:${PN} += " /data/dummy.txt"
 
 do_install:append() {
   rm -rf ${D}/etc/modules-load.d
 
+  install -d ${D}/data
+  install -d ${D}/loopfs
+
+  echo "dummy" > ${D}/data/dummy.txt
+  echo "dummy" > ${D}/loopfs/dummy.txt
+
+
   install -d ${D}/${systemd_unitdir}/system
   install -m 0644 ${WORKDIR}/tfs.service ${D}/${systemd_unitdir}/system
-  install -m 0644 ${WORKDIR}/tfs-setup.sh ${D}/etc/tfs-setup.sh
+  install -m 0755 ${WORKDIR}/tfs-setup.sh ${D}/etc/tfs-setup.sh
 }
 
