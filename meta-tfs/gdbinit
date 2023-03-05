@@ -3,6 +3,11 @@ target remote:1234
 
 add-symbol-file ~/Projects/image/build/tmp/work/qemux86_64-poky-linux/linux-yocto/5.19.17+gitAUTOINC+239a6c0d3c_84f2f8e7a6-r0/linux-qemux86_64-standard-build/vmlinux
 
+set substitute-path /usr/src/kernel /home/rove/Projects/image/build/tmp/work/qemux86_64-poky-linux/linux-yocto/5.19.17+gitAUTOINC+239a6c0d3c_84f2f8e7a6-r0/linux-qemux86_64-standard-build/source/
+
 b start_kernel
 
 c
+
+# hbreak start_kernel
+# monitor system_reset
