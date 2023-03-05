@@ -1,0 +1,7 @@
+[Unit]
+Description=GNU Hello World startup script for KOAN training course
+
+[Service]
+ExecStart=tfs-setup.sh
+[Install]
+WantedBy=multi-user.target
