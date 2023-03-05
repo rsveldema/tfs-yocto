@@ -1,0 +1,1 @@
+../build/tmp/work/qemux86_64-poky-linux/linux-yocto/5.19.17+gitAUTOINC+239a6c0d3c_84f2f8e7a6-r0/linux-qemux86_64-standard-build/vmlinux-gdb.py
